@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0)
         {
-            Debug.Log(rb.velocity.y);
             rb.AddForce(transform.up * jumpForce);
+            animator.SetTrigger("Jump");
         }
 
         // 좌우 이동 (flipX 사용)
